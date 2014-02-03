@@ -29,7 +29,7 @@
   	<!-- datasource -->
 	<jdbc:embedded-database id="dataSource" type="HSQL"/>
 	<jdbc:initialize-database data-source="dataSource">
-		<jdbc:script location="classpath:import.sql"/>
+		<jdbc:script location="classpath:init-db.sql"/>
 	</jdbc:initialize-database>
 
 
