@@ -10,12 +10,24 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:META-INF/spring/application-context.xml</param-value>
 	</context-param>     
-    <!-- listener spring -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
          
-    <!-- Servlet request factory -->
+	<!-- Handler gwt rpc -->
+	<servlet>
+		<servlet-name>handler</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/handler-context.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>handler</servlet-name>
+		<url-pattern>/FormationGWT/handler/*</url-pattern>
+	</servlet-mapping>
+	
+	 <!-- Servlet request factory -->
 	<servlet>
 		<servlet-name>requestFactoryServlet</servlet-name>
 		<servlet-class>com.ippon.formation.gwt.server.servlet.RFSpringServlet</servlet-class>
@@ -25,18 +37,11 @@
 		<servlet-name>requestFactoryServlet</servlet-name>
 		<url-pattern>/gwtRequest</url-pattern>
 	</servlet-mapping>
-         
-	<!-- servlet rpc -->
-	<servlet>
-	  <servlet-name>playerService</servlet-name>
-	  <servlet-class>
-	    com.ippon.formation.gwt.server.service.PlayerRPCImpl
-	  </servlet-class>
-	</servlet>
-	<servlet-mapping>
-	  <servlet-name>playerService</servlet-name>
-	  <url-pattern>/FormationGWT/player</url-pattern>
-	</servlet-mapping>
+	
+	 <!-- listener spring -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
   
   <!-- Default page to serve -->
   <welcome-file-list>
