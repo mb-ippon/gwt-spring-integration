@@ -1,5 +1,6 @@
 package com.ippon.formation.gwt.client.ui.activity;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -10,6 +11,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.validation.client.impl.Validation;
 import com.google.web.bindery.requestfactory.gwt.client.RequestFactoryEditorDriver;
 import com.google.web.bindery.requestfactory.shared.Receiver;
+import com.ippon.formation.gwt.client.domain.bindery.rf.proxy.CountryProxy;
 import com.ippon.formation.gwt.client.domain.bindery.rf.proxy.PlayerProxy;
 import com.ippon.formation.gwt.client.domain.bindery.rf.request.CountryRequest;
 import com.ippon.formation.gwt.client.domain.bindery.rf.request.PlayerRequest;
@@ -147,13 +149,13 @@ public class PlayerActivity implements Presenter {
         playerDriver.initialize((PlayerViewImpl) display);
 
         CountryRequest request = ApplicationResources.getRequestFactory().countryRequest();
-        // request.findCountries().fire(new Receiver<List<CountryProxy>>() {
-        //
-        // @Override
-        // public void onSuccess(List<CountryProxy> response) {
-        // display.setDataCountry(response);
-        // }
-        // });
+        request.findCountries().fire(new Receiver<List<CountryProxy>>() {
+
+            @Override
+            public void onSuccess(List<CountryProxy> response) {
+                display.setDataCountry(response);
+            }
+        });
 
         display.setButtonEnabled(false);
 

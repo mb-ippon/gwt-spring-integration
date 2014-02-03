@@ -7,9 +7,9 @@ import com.google.web.bindery.requestfactory.shared.RequestContext;
 import com.google.web.bindery.requestfactory.shared.Service;
 import com.ippon.formation.gwt.client.domain.bindery.rf.proxy.CountryProxy;
 import com.ippon.formation.gwt.server.service.AppServicesLocator;
-import com.ippon.formation.gwt.server.service.CountryServiceImpl;
+import com.ippon.formation.gwt.server.service.CountryService;
 
-@Service(value = CountryServiceImpl.class, locator = AppServicesLocator.class)
+@Service(value = CountryService.class, locator = AppServicesLocator.class)
 public interface CountryRequest extends RequestContext {
 
     Request<List<CountryProxy>> findCountries();

@@ -9,7 +9,18 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:META-INF/spring/application-context.xml</param-value>
-	</context-param>     
+	</context-param>  
+	   
+	 <!-- Servlet request factory -->
+	<servlet>
+		<servlet-name>requestFactoryServlet</servlet-name>
+		<servlet-class>com.ippon.formation.gwt.server.servlet.RFSpringServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>requestFactoryServlet</servlet-name>
+		<url-pattern>/gwtRequest</url-pattern>
+	</servlet-mapping>
          
 	<!-- Handler gwt rpc -->
 	<servlet>
@@ -27,16 +38,6 @@
 		<url-pattern>/FormationGWT/handler/*</url-pattern>
 	</servlet-mapping>
 	
-	 <!-- Servlet request factory -->
-	<servlet>
-		<servlet-name>requestFactoryServlet</servlet-name>
-		<servlet-class>com.ippon.formation.gwt.server.servlet.RFSpringServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>requestFactoryServlet</servlet-name>
-		<url-pattern>/gwtRequest</url-pattern>
-	</servlet-mapping>
 	
 	 <!-- listener spring -->
 	<listener>

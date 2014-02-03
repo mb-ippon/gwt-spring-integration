@@ -25,6 +25,9 @@ public class PlayerRPCImpl extends GWTSpringController implements PlayerRPC {
     @Autowired
     private PlayerDao dao;
 
+    @Autowired
+    private PlayerService service;
+
     @Override
     @Transactional(readOnly = true)
     public List<Player> findClassement() {
