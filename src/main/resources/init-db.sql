@@ -1,12 +1,12 @@
-insert into country(code, libelle,version)
+insert into country(id,code, libelle,version)
 	Values
-	('SRB', 'Serbia',0),
-	('ESP', 'Spain',0),
-	('CHE', 'Switzerland',0),
-	('FRA', 'France',0),
-	('GBR', 'Great Britain',0),
-	('ARG', 'Argentina',0),
-	('CZE', 'Czech Republic',0);
+	(1,'SRB', 'Serbia',0),
+	(2,'ESP', 'Spain',0),
+	(3,'CHE', 'Switzerland',0),
+	(4,'FRA', 'France',0),
+	(5,'GBR', 'Great Britain',0),
+	(6,'ARG', 'Argentina',0),
+	(7,'CZE', 'Czech Republic',0);
 insert into player(id, height, weight,atpPoint,yearTurnPro,name,playHand,country_id,birthDay,version)
 	Values
 	(1,188, 88,12260,2003,'Djokovic N.',0,1,TO_DATE('05/22/1987', 'MM/DD/YYYY'),0),

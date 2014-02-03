@@ -1,16 +1,14 @@
 package com.ippon.formation.gwt.shared.domain.entities;
 
-import java.io.Serializable;
+import com.google.gwt.user.client.rpc.IsSerializable;
 
-public class Country implements Serializable {
+public class Country implements IsSerializable {
 
-    /**
-     * 
-     */
-    private static final long serialVersionUID = -868453583880327320L;
+    private String code;
+    private String libelle;
 
-    private final String code;
-    private final String libelle;
+    public Country() {
+    }
 
     public Country(String code, String libelle) {
         this.code = code;
@@ -23,6 +21,14 @@ public class Country implements Serializable {
 
     public String getLibelle() {
         return libelle;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public void setLibelle(String libelle) {
+        this.libelle = libelle;
     }
 
     @Override
